@@ -15,7 +15,11 @@ const router = express.Router();
 
 	//process the login form
 
-	//app.post('/login', do all our passport stuff here);
+	app.post('/login', passport.authenticate('local-login', {
+		successRedirect : '/profile',
+		failureRedirect : '/login',
+		failureFlash : true
+	}));
 
 
 	//SIGNUP show the signup form
